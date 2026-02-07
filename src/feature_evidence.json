@@ -2,11 +2,12 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-add-a-back-button-on-all-non-landing-pages-riddle-intermediate-final-that-navigates-the-user-back-to-the-first-page-landing-the-button-must-use-the-existing-romantic-ui-style-and-be-placed-so-it-is-always-accessible-e-g-fixed-top-left-without-blocking-existing-controls-like-the-music-toggle",
-      "featureTitle": "Add a back button on all non-landing pages (Riddle, Intermediate, Final) that navigates the user back to the first page (Landing). The button must use the existing romantic UI style and be placed so it is always accessible (e.g., fixed top-left) without blocking existing controls like the music toggle.",
+      "featureId": "feature-remove-all-ai-generated-image-usage-from-the-ui-everywhere-except-the-final-page-last-section-the-this-is-you-photo-upload-preview-section-this-includes-removing-the-fixed-photos-on-the-riddle-and-intermediate-pages-and-removing-any-image-based-decorative-assets-used-for-backgrounds-effects-titles",
+      "featureTitle": "Remove all AI-generated image usage from the UI everywhere except the Final page last section (the \"This is you 🌷\" photo upload/preview section). This includes removing the fixed photos on the Riddle and Intermediate pages and removing any image-based decorative assets used for backgrounds/effects/titles.",
       "files": [
-        "frontend/src/components/controls/BackToLandingButton.tsx",
-        "frontend/src/pages/FinalPage.tsx",
+        "frontend/src/components/effects/CursorPetalTrail.tsx",
+        "frontend/src/components/effects/FallingFlowersBackground.tsx",
+        "frontend/src/components/typography/FloralTitle.tsx",
         "frontend/src/pages/IntermediatePage.tsx",
         "frontend/src/pages/RiddlePage.tsx"
       ],
@@ -18,16 +19,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-12"
+        "REQ-19"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-extend-the-flow-state-manager-to-support-returning-to-the-landing-page-in-a-single-call-e-g-add-a-gotolanding-action-when-returning-to-landing-via-the-back-button-reset-the-riddle-attempt-counter-back-to-2-so-the-user-can-start-fresh-when-they-continue-again",
-      "featureTitle": "Extend the flow state manager to support returning to the Landing page in a single call (e.g., add a goToLanding action). When returning to Landing via the back button, reset the riddle attempt counter back to 2 so the user can start fresh when they continue again.",
+      "featureId": "feature-preserve-the-existing-flow-copy-and-interactivity-while-removing-ai-generated-images-do-not-change-navigation-steps-riddle-attempt-logic-wrong-answer-messaging-provided-strings-music-toggle-behavior-or-back-button-behavior",
+      "featureTitle": "Preserve the existing flow, copy, and interactivity while removing AI-generated images: do not change navigation steps, riddle attempt logic, wrong-answer messaging, provided strings, music toggle behavior, or back button behavior.",
       "files": [
-        "frontend/src/components/controls/BackToLandingButton.tsx",
-        "frontend/src/flow/FlowProvider.tsx"
+        "frontend/src/pages/RiddlePage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -37,7 +37,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-13"
+        "REQ-20"
       ],
       "confidence": "high"
     }

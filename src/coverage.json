@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-07T21:31:34.781Z",
+  "generatedAt": "2026-02-07T22:02:37.836Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -11,46 +11,48 @@
     "implemented": 2,
     "items": [
       {
-        "id": "REQ-12",
-        "summary": "Add a back button on all non-landing pages (Riddle, Intermediate, Final) that navigates the user back to the first page (Landing). The button must use the existing romantic UI style and be placed so it is always accessible (e.g., fixed top-left) without blocking existing controls like the music toggle.",
+        "id": "REQ-19",
+        "summary": "Remove all AI-generated image usage from the UI everywhere except the Final page last section (the \"This is you 🌷\" photo upload/preview section). This includes removing the fixed photos on the Riddle and Intermediate pages and removing any image-based decorative assets used for backgrounds/effects/titles.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/controls/BackToLandingButton.tsx",
           "frontend/src/pages/RiddlePage.tsx",
           "frontend/src/pages/IntermediatePage.tsx",
-          "frontend/src/pages/FinalPage.tsx"
+          "frontend/src/components/typography/FloralTitle.tsx",
+          "frontend/src/components/effects/FallingFlowersBackground.tsx",
+          "frontend/src/components/effects/CursorPetalTrail.tsx",
+          "frontend/src/index.css"
         ],
         "matchedFiles": [
-          "frontend/src/components/controls/BackToLandingButton.tsx",
           "frontend/src/pages/RiddlePage.tsx",
           "frontend/src/pages/IntermediatePage.tsx",
-          "frontend/src/pages/FinalPage.tsx"
+          "frontend/src/components/typography/FloralTitle.tsx",
+          "frontend/src/components/effects/FallingFlowersBackground.tsx",
+          "frontend/src/components/effects/CursorPetalTrail.tsx"
         ]
       },
       {
-        "id": "REQ-13",
-        "summary": "Extend the flow state manager to support returning to the Landing page in a single call (e.g., add a goToLanding action). When returning to Landing via the back button, reset the riddle attempt counter back to 2 so the user can start fresh when they continue again.",
+        "id": "REQ-20",
+        "summary": "Preserve the existing flow, copy, and interactivity while removing AI-generated images: do not change navigation steps, riddle attempt logic, wrong-answer messaging, provided strings, music toggle behavior, or back button behavior.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/flow/FlowProvider.tsx",
-          "frontend/src/components/controls/BackToLandingButton.tsx"
+          "frontend/src/pages/RiddlePage.tsx",
+          "frontend/src/pages/FinalPage.tsx",
+          "frontend/src/App.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/flow/FlowProvider.tsx",
-          "frontend/src/components/controls/BackToLandingButton.tsx"
+          "frontend/src/pages/RiddlePage.tsx"
         ]
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
-    "build-template/README.md",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/components/controls/BackToLandingButton.tsx",
-    "frontend/src/flow/FlowProvider.tsx",
-    "frontend/src/pages/FinalPage.tsx",
+    "frontend/src/components/effects/CursorPetalTrail.tsx",
+    "frontend/src/components/effects/FallingFlowersBackground.tsx",
+    "frontend/src/components/typography/FloralTitle.tsx",
     "frontend/src/pages/IntermediatePage.tsx",
     "frontend/src/pages/RiddlePage.tsx",
     "project_state.json",

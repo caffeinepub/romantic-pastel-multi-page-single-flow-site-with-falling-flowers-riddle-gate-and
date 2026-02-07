@@ -10,8 +10,8 @@ export function FloralTitle({ children, className = '' }: FloralTitleProps) {
     <h1
       className={`text-7xl md:text-9xl font-bold floral-title ${className}`}
       style={{
-        backgroundImage: 'url(/assets/generated/floral-texture-seamless.dim_1024x1024.png)',
-        backgroundSize: '400px 400px',
+        background: 'linear-gradient(135deg, #ec4899 0%, #f472b6 25%, #fb7185 50%, #f472b6 75%, #ec4899 100%)',
+        backgroundSize: '200% 200%',
         backgroundClip: 'text',
         WebkitBackgroundClip: 'text',
         color: 'transparent',

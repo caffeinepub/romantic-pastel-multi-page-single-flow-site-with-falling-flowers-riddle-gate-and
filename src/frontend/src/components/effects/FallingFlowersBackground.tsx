@@ -20,9 +20,6 @@ export function FallingFlowersBackground({ variant, speed }: FallingFlowersBackg
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const flowersRef = useRef<Flower[]>([]);
   const animationFrameRef = useRef<number | undefined>(undefined);
-  const roseImageRef = useRef<HTMLImageElement | undefined>(undefined);
-  const tulipImageRef = useRef<HTMLImageElement | undefined>(undefined);
-  const imagesLoadedRef = useRef(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -38,23 +35,6 @@ export function FallingFlowersBackground({ variant, speed }: FallingFlowersBackg
     };
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
-
-    // Load images
-    const roseImg = new Image();
-    const tulipImg = new Image();
-    
-    roseImg.onload = () => {
-      imagesLoadedRef.current++;
-      roseImageRef.current = roseImg;
-    };
-    
-    tulipImg.onload = () => {
-      imagesLoadedRef.current++;
-      tulipImageRef.current = tulipImg;
-    };
-    
-    roseImg.src = '/assets/generated/rose-petal-sprite.dim_256x256.png';
-    tulipImg.src = '/assets/generated/tulip-petal-sprite.dim_256x256.png';
 
     // Initialize flowers
     const flowerCount = 30;
@@ -73,36 +53,58 @@ export function FallingFlowersBackground({ variant, speed }: FallingFlowersBackg
       });
     }
 
+    // Draw a simple petal shape
+    const drawPetal = (ctx: CanvasRenderingContext2D, size: number, type: 'rose' | 'tulip') => {
+      ctx.beginPath();
+      
+      if (type === 'rose') {
+        // Rose petal - rounded teardrop shape
+        ctx.moveTo(0, -size / 2);
+        ctx.bezierCurveTo(
+          size / 2, -size / 2,
+          size / 2, size / 2,
+          0, size / 2
+        );
+        ctx.bezierCurveTo(
+          -size / 2, size / 2,
+          -size / 2, -size / 2,
+          0, -size / 2
+        );
+        ctx.fillStyle = '#ec4899';
+      } else {
+        // Tulip petal - elongated oval
+        ctx.ellipse(0, 0, size / 3, size / 2, 0, 0, Math.PI * 2);
+        ctx.fillStyle = '#f472b6';
+      }
+      
+      ctx.fill();
+    };
+
     // Animation loop
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      if (imagesLoadedRef.current >= (variant === 'roses-only' ? 1 : 2)) {
-        flowersRef.current.forEach((flower) => {
-          ctx.save();
-          ctx.globalAlpha = flower.opacity;
-          ctx.translate(flower.x, flower.y);
-          ctx.rotate((flower.rotation * Math.PI) / 180);
+      flowersRef.current.forEach((flower) => {
+        ctx.save();
+        ctx.globalAlpha = flower.opacity;
+        ctx.translate(flower.x, flower.y);
+        ctx.rotate((flower.rotation * Math.PI) / 180);
 
-          const img = flower.type === 'rose' ? roseImageRef.current : tulipImageRef.current;
-          if (img) {
-            ctx.drawImage(img, -flower.size / 2, -flower.size / 2, flower.size, flower.size);
-          }
+        drawPetal(ctx, flower.size, flower.type);
 
-          ctx.restore();
+        ctx.restore();
 
-          // Update position
-          flower.y += flower.speed;
-          flower.rotation += flower.rotationSpeed;
-          flower.x += Math.sin(flower.y * 0.01) * 0.5;
+        // Update position
+        flower.y += flower.speed;
+        flower.rotation += flower.rotationSpeed;
+        flower.x += Math.sin(flower.y * 0.01) * 0.5;
 
-          // Reset when off screen
-          if (flower.y > canvas.height + flower.size) {
-            flower.y = -flower.size;
-            flower.x = Math.random() * canvas.width;
-          }
-        });
-      }
+        // Reset when off screen
+        if (flower.y > canvas.height + flower.size) {
+          flower.y = -flower.size;
+          flower.x = Math.random() * canvas.width;
+        }
+      });
 
       animationFrameRef.current = requestAnimationFrame(animate);
     };

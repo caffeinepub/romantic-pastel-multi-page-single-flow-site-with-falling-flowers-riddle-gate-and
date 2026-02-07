@@ -1,11 +1,13 @@
 # Specification
 
 ## Summary
-**Goal:** Add an always-accessible back button on all non-landing pages that returns the user to the Landing page and resets the flow state for a fresh restart.
+**Goal:** Remove all AI-generated images and image-based decorative effects from the UI, except for the Final page’s last “This is you 🌷” upload/preview section.
 
 **Planned changes:**
-- Add a romantic-styled back button to Riddle, Intermediate, and Final pages that navigates directly to the Landing page without blocking existing controls (e.g., the top-right music toggle).
-- Extend the flow state manager (FlowProvider) with a dedicated action to return to Landing (e.g., `goToLanding`) and reset the riddle attempts back to 2 when used.
-- Ensure returning to Landing via the back button preserves existing smooth fade transitions and keeps session storage state consistent (no stuck state on refresh).
+- Remove the fixed AI-generated photo from the Riddle page (currently `/assets/generated/her-photo.dim_1024x1024.png`).
+- Remove the fixed AI-generated photo from the Intermediate page (currently `/assets/generated/my-photo.dim_1024x1024.png`).
+- Remove AI-generated image usage from the Landing page title styling (currently referencing `/assets/generated/floral-texture-seamless.dim_1024x1024.png`).
+- Remove the falling flower background animation and cursor petal trail so they no longer load or depend on `/assets/generated/rose-petal-sprite.dim_256x256.png` or `/assets/generated/tulip-petal-sprite.dim_256x256.png`.
+- Keep the existing flow, copy, and interactivity unchanged (navigation steps, riddle attempts and messaging, music toggle, and back button behavior), and keep the Final page’s last section title exactly “This is you 🌷” with the existing upload + preview behavior.
 
-**User-visible outcome:** On Riddle, Intermediate, and Final pages, users can tap a back button to return to the Landing page at any time; when they start again, the riddle begins with 2 attempts remaining and the app transitions remain smooth.
+**User-visible outcome:** The app looks the same in terms of text, flow, and interactions, but no longer shows AI-generated photos or decorative image effects anywhere—except the Final page’s last “This is you 🌷” section, where the user can still upload and preview their own photo.

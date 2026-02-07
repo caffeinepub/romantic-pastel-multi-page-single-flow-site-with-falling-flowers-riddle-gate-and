@@ -1,13 +1,15 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 5,
+  "projectStateVersion": 11,
   "summary": "Build a cute romantic single-flow multi-page web experience with pastel pink aesthetics, falling flower animations, a riddle gate with limited attempts, intermediate and final message pages, image upload placeholders, and optional music/interactive effects.",
   "architectural_notes": [
     "Single-flow multi-page UX: Landing → Riddle (2 attempts) → (optional Intermediate on fail) → Final.",
     "Use continuous background animation of multiple falling roses/tulips (snowfall effect) across pages; slower on final page.",
-    "Include client-side image upload placeholders on intermediate page (user photo) and final page (her photo).",
     "Maintain cohesive pastel pink/blush theme with rounded elements, handwritten romantic fonts, subtle sparkles/hearts, and smooth transitions.",
-    "Optional background music toggle; ensure mobile-responsive layout and animations."
+    "Optional background music toggle; ensure mobile-responsive layout and animations.",
+    "Update image handling: support fixed, pre-provided photo assets (no upload) for 'my photo' on Intermediate (wrong-answer flow) and her photo displayed permanently on the specified page.",
+    "Intermediate (wrong-answer) page: adjust the image display in the “diet coke” quote section to show only a single image (remove the first two images currently present there).",
+    "User request: remove all AI-generated images/assets across the experience, except keep images in the last section."
   ],
   "known_issues": [],
   "isFixRequest": false,
@@ -115,6 +117,54 @@
         "REQ-13"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-show-a-permanent-fixed-image-of-her-on-the-riddle-page-the-second-page-alongside-the-existing-riddle-ui-without-removing-or-altering-the-existing-riddle-text-input-attempts-logic-or-wrong-answer-messaging",
+      "title": "Show a permanent fixed image of her on the Riddle page (the second page) alongside the existing riddle UI, without removing or altering the existing riddle text, input, attempts logic, or wrong-answer messaging.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-on-the-intermediate-page-shown-after-the-second-failed-riddle-attempt-replace-the-current-image-upload-placeholder-with-a-fixed-image-of-the-user-your-photo-that-appears-automatically-when-the-user-reaches-this-page-due-to-a-wrong-answer-flow",
+      "title": "On the Intermediate page (shown after the second failed riddle attempt), replace the current image upload placeholder with a fixed image of the user (your photo) that appears automatically when the user reaches this page due to a wrong answer flow.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-two-required-fixed-photo-assets-to-the-project-as-static-files-and-wire-them-into-the-riddle-and-intermediate-pages-ensuring-they-are-served-directly-by-the-frontend-no-backend-involvement",
+      "title": "Add the two required fixed photo assets to the project as static files and wire them into the Riddle and Intermediate pages, ensuring they are served directly by the frontend (no backend involvement).",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-intermediate-page-fixed-photo-asset-with-the-user-uploaded-image-49d7e894-8a2d-48b3-a6b0-bf224bc3496a-1-jpg-so-that-the-intermediate-page-displays-that-uploaded-photo-as-the-single-image",
+      "title": "Replace the Intermediate page fixed photo asset with the user-uploaded image (49d7e894-8a2d-48b3-a6b0-bf224bc3496a-1.jpg) so that the Intermediate page displays that uploaded photo as the single image.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-all-ai-generated-image-usage-from-the-ui-everywhere-except-the-final-page-last-section-the-this-is-you-photo-upload-preview-section-this-includes-removing-the-fixed-photos-on-the-riddle-and-intermediate-pages-and-removing-any-image-based-decorative-assets-used-for-backgrounds-effects-titles",
+      "title": "Remove all AI-generated image usage from the UI everywhere except the Final page last section (the \"This is you 🌷\" photo upload/preview section). This includes removing the fixed photos on the Riddle and Intermediate pages and removing any image-based decorative assets used for backgrounds/effects/titles.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-preserve-the-existing-flow-copy-and-interactivity-while-removing-ai-generated-images-do-not-change-navigation-steps-riddle-attempt-logic-wrong-answer-messaging-provided-strings-music-toggle-behavior-or-back-button-behavior",
+      "title": "Preserve the existing flow, copy, and interactivity while removing AI-generated images: do not change navigation steps, riddle attempt logic, wrong-answer messaging, provided strings, music toggle behavior, or back button behavior.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -151,6 +201,35 @@
     {
       "id": "AR-6",
       "summary": "Add a back button that navigates from later pages back to the first (Landing) page",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Replace image upload placeholders with fixed images: show the user’s (my) picture automatically on the wrong-answer flow (Intermediate page after 2 failed attempts), and show her picture permanently on the second page (Riddle page)",
+      "reqIds": [
+        "REQ-6",
+        "REQ-7"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Update the Intermediate (wrong-answer) page layout so the section with the “i’ll get you more diet coke” quote shows only one image, removing the first two images currently shown",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "On the Intermediate page (the page that displays the message \"it's okay, i'll get you more diet coke, don't stress out 💗\"), remove any existing extra images in that section (\"the first two images\") so that only one image is shown above the quote.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Remove all AI-generated images/assets from the site (keep only the images in the last section, per user request)",
       "reqIds": [],
       "status": "pending"
     }

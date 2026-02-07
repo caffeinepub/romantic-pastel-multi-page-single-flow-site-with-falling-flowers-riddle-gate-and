@@ -15,7 +15,6 @@ export function CursorPetalTrail() {
   const petalsRef = useRef<Petal[]>([]);
   const mouseRef = useRef({ x: 0, y: 0 });
   const animationFrameRef = useRef<number | undefined>(undefined);
-  const imageRef = useRef<HTMLImageElement | undefined>(undefined);
   const lastSpawnRef = useRef(0);
 
   useEffect(() => {
@@ -40,12 +39,24 @@ export function CursorPetalTrail() {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Load petal image
-    const img = new Image();
-    img.onload = () => {
-      imageRef.current = img;
+    // Draw a simple petal shape
+    const drawPetal = (ctx: CanvasRenderingContext2D, size: number) => {
+      ctx.beginPath();
+      // Rose petal - rounded teardrop shape
+      ctx.moveTo(0, -size / 2);
+      ctx.bezierCurveTo(
+        size / 2, -size / 2,
+        size / 2, size / 2,
+        0, size / 2
+      );
+      ctx.bezierCurveTo(
+        -size / 2, size / 2,
+        -size / 2, -size / 2,
+        0, -size / 2
+      );
+      ctx.fillStyle = '#ec4899';
+      ctx.fill();
     };
-    img.src = '/assets/generated/rose-petal-sprite.dim_256x256.png';
 
     // Track mouse
     const handleMouseMove = (e: MouseEvent) => {
@@ -73,14 +84,12 @@ export function CursorPetalTrail() {
       petalsRef.current = petalsRef.current.filter((petal) => {
         if (petal.opacity <= 0) return false;
 
-        if (imageRef.current) {
-          ctx.save();
-          ctx.globalAlpha = petal.opacity;
-          ctx.translate(petal.x, petal.y);
-          ctx.rotate((petal.rotation * Math.PI) / 180);
-          ctx.drawImage(imageRef.current, -petal.size / 2, -petal.size / 2, petal.size, petal.size);
-          ctx.restore();
-        }
+        ctx.save();
+        ctx.globalAlpha = petal.opacity;
+        ctx.translate(petal.x, petal.y);
+        ctx.rotate((petal.rotation * Math.PI) / 180);
+        drawPetal(ctx, petal.size);
+        ctx.restore();
 
         petal.x += petal.vx;
         petal.y += petal.vy;

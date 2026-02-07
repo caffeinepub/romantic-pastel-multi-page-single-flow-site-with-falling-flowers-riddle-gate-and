@@ -41,16 +41,18 @@ export default function RiddlePage() {
       <SparklesOverlay />
       <BackToLandingButton />
       
-      <RiddleCard
-        riddle={STRINGS.riddle.text}
-        answer={answer}
-        onAnswerChange={setAnswer}
-        onSubmit={handleSubmit}
-        showError={showError}
-        errorMessage={STRINGS.riddle.wrongMessage}
-        shake={shake}
-        remainingAttempts={remainingAttempts}
-      />
+      <div className="relative z-10 w-full max-w-md">
+        <RiddleCard
+          riddle={STRINGS.riddle.text}
+          answer={answer}
+          onAnswerChange={setAnswer}
+          onSubmit={handleSubmit}
+          showError={showError}
+          errorMessage={STRINGS.riddle.wrongMessage}
+          shake={shake}
+          remainingAttempts={remainingAttempts}
+        />
+      </div>
     </div>
   );
 }
