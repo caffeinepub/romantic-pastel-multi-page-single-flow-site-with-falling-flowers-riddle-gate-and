@@ -2,14 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-remove-all-ai-generated-image-usage-from-the-ui-everywhere-except-the-final-page-last-section-the-this-is-you-photo-upload-preview-section-this-includes-removing-the-fixed-photos-on-the-riddle-and-intermediate-pages-and-removing-any-image-based-decorative-assets-used-for-backgrounds-effects-titles",
-      "featureTitle": "Remove all AI-generated image usage from the UI everywhere except the Final page last section (the \"This is you 🌷\" photo upload/preview section). This includes removing the fixed photos on the Riddle and Intermediate pages and removing any image-based decorative assets used for backgrounds/effects/titles.",
+      "featureId": "feature-remove-the-this-is-you-heading-text-from-the-final-page-photo-upload-section-so-that-the-ui-no-longer-displays-any-this-is-you-text-anywhere-on-the-final-page",
+      "featureTitle": "Remove the “This is you 🌷” heading text from the Final page photo upload section so that the UI no longer displays any “This is you” text anywhere on the Final page.",
       "files": [
-        "frontend/src/components/effects/CursorPetalTrail.tsx",
-        "frontend/src/components/effects/FallingFlowersBackground.tsx",
-        "frontend/src/components/typography/FloralTitle.tsx",
-        "frontend/src/pages/IntermediatePage.tsx",
-        "frontend/src/pages/RiddlePage.tsx"
+        "frontend/src/pages/FinalPage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -19,15 +15,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-19"
+        "REQ-22"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-preserve-the-existing-flow-copy-and-interactivity-while-removing-ai-generated-images-do-not-change-navigation-steps-riddle-attempt-logic-wrong-answer-messaging-provided-strings-music-toggle-behavior-or-back-button-behavior",
-      "featureTitle": "Preserve the existing flow, copy, and interactivity while removing AI-generated images: do not change navigation steps, riddle attempt logic, wrong-answer messaging, provided strings, music toggle behavior, or back button behavior.",
+      "featureId": "feature-update-centralized-string-content-so-the-final-page-does-not-include-any-user-facing-this-is-you-text-including-this-is-you-in-frontend-src-content-strings-ts-and-ensure-remaining-user-facing-strings-remain-in-english",
+      "featureTitle": "Update centralized string content so the Final page does not include any user-facing “This is you” text (including “This is you 🌷”) in frontend/src/content/strings.ts, and ensure remaining user-facing strings remain in English.",
       "files": [
-        "frontend/src/pages/RiddlePage.tsx"
+        "frontend/src/content/strings.ts"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -37,7 +33,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-20"
+        "REQ-23"
       ],
       "confidence": "high"
     }

@@ -15,6 +15,5 @@ export const STRINGS = {
   },
   final: {
     note: "hey shaurya this side, sorry i couldnt give you roses irl so please accept this for now, as it is rose day today i wish i was with you and we could have spent the day together but its okay YOU NEED TO LOCK IN am there for you 💗",
-    photoSection: 'This is you 🌷',
   },
 };

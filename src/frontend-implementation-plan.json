@@ -1,76 +1,36 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Remove AI-generated decorative images while preserving the existing flow",
+  "title": "Remove “This is you” heading from Final page photo section",
   "requirements": [
     {
-      "id": "REQ-19",
-      "summary": "Remove all AI-generated image usage everywhere except the Final page user-upload section, including fixed photos, floral title texture, and petal sprite-based effects.",
+      "id": "REQ-22",
+      "summary": "Remove the “This is you 🌷” heading from the Final page photo upload section while keeping the “this is for you” line unchanged.",
       "acceptanceCriteria": [
-        "Riddle page no longer renders the fixed image currently sourced from \"/assets/generated/her-photo.dim_1024x1024.png\".",
-        "Intermediate page no longer renders the fixed image currently sourced from \"/assets/generated/my-photo.dim_1024x1024.png\".",
-        "Landing page title no longer uses the floral texture image currently referenced as \"/assets/generated/floral-texture-seamless.dim_1024x1024.png\".",
-        "Falling flower background animation no longer loads or depends on \"/assets/generated/rose-petal-sprite.dim_256x256.png\" or \"/assets/generated/tulip-petal-sprite.dim_256x256.png\".",
-        "Cursor petal trail effect no longer loads or depends on \"/assets/generated/rose-petal-sprite.dim_256x256.png\".",
-        "Final page still shows the last section title exactly \"This is you 🌷\" and still allows uploading and previewing a user-selected image via the existing upload component.",
-        "No remaining runtime references to \"/assets/generated/\" images exist except those required to support the Final page user-upload preview (data URL) behavior."
+        "On the Final page, the text “This is you 🌷” is not rendered anywhere.",
+        "The line “this is for you” remains displayed immediately above the photo upload component.",
+        "No other Final page copy, layout structure, flow behavior, or interactions are changed beyond removing the “This is you 🌷” heading and its associated spacing as needed."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/RiddlePage.tsx",
+          "path": "frontend/src/pages/FinalPage.tsx",
           "operation": "modify",
-          "description": "Remove the fixed <img> rendering of the AI-generated photo (currently referencing /assets/generated/her-photo.dim_1024x1024.png) while keeping the riddle UI layout, attempts behavior, and navigation unchanged."
-        },
-        {
-          "path": "frontend/src/pages/IntermediatePage.tsx",
-          "operation": "modify",
-          "description": "Remove the fixed <img> rendering of the AI-generated photo (currently referencing /assets/generated/my-photo.dim_1024x1024.png) while preserving the message copy and continue button behavior."
-        },
-        {
-          "path": "frontend/src/components/typography/FloralTitle.tsx",
-          "operation": "modify",
-          "description": "Remove the AI-generated floral texture background image usage (currently /assets/generated/floral-texture-seamless.dim_1024x1024.png) and replace with a non-image styling approach (e.g., gradient/text color) while keeping the same component API and title rendering."
-        },
-        {
-          "path": "frontend/src/components/effects/FallingFlowersBackground.tsx",
-          "operation": "modify",
-          "description": "Eliminate loading/usage of sprite images (currently /assets/generated/rose-petal-sprite.dim_256x256.png and /assets/generated/tulip-petal-sprite.dim_256x256.png) and update the animation to draw non-image petals/particles with canvas primitives while preserving existing props (variant, speed) and overall background behavior."
-        },
-        {
-          "path": "frontend/src/components/effects/CursorPetalTrail.tsx",
-          "operation": "modify",
-          "description": "Remove loading/usage of the petal sprite (currently /assets/generated/rose-petal-sprite.dim_256x256.png) and render the trail using non-image canvas primitives, keeping reduced-motion and touch-device checks and maintaining the existing z-index/positioning behavior."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Audit and remove any remaining CSS-level references to /assets/generated/* (if any exist now or are introduced during refactors) while keeping existing animations/utilities used by the flow."
+          "description": "Remove the heading element that renders STRINGS.final.photoSection (currently displaying “This is you 🌷”) from the photo upload section, and adjust only the immediately-associated spacing so the upload component sits correctly beneath the unchanged “this is for you” line."
         }
       ]
     },
     {
-      "id": "REQ-20",
-      "summary": "Preserve existing flow, copy, and interactivity while removing AI-generated images (no navigation, logic, messaging, or music/back-button behavior changes).",
+      "id": "REQ-23",
+      "summary": "Remove any user-facing “This is you” string content from centralized strings so it cannot appear on the Final page.",
       "acceptanceCriteria": [
-        "All user-facing strings in frontend/src/content/strings.ts remain exactly unchanged.",
-        "Riddle validation remains case-insensitive for the correct answer \"RICHELLE\" and still enforces exactly two attempts with the same wrong-answer message.",
-        "Transitions between pages, the music toggle, and the back-to-landing button continue to function as before."
+        "frontend/src/content/strings.ts no longer contains the user-facing value “This is you 🌷”.",
+        "All remaining user-facing strings remain in English and unchanged unless required to remove “This is you” text."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/RiddlePage.tsx",
+          "path": "frontend/src/content/strings.ts",
           "operation": "modify",
-          "description": "Ensure the riddle submission handler logic remains intact (case-insensitive match against STRINGS.riddle.correctAnswer, two-attempt enforcement, and the same wrong-answer messaging) while implementing the visual-only removals from REQ-19."
-        },
-        {
-          "path": "frontend/src/pages/FinalPage.tsx",
-          "operation": "modify",
-          "description": "Verify the Final page last section remains unchanged in behavior: the title continues to render STRINGS.final.photoSection exactly, and the existing SessionImageUpload still supports user image upload + preview via data URL (no /assets/generated usage)."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Confirm the step transition behavior (opacity transition timing), global music toggle rendering, and back button accessibility remain unchanged after effect/component refactors."
+          "description": "Delete or replace the Final-page string value that contains “This is you 🌷” (currently STRINGS.final.photoSection) so no user-facing “This is you” text remains in this file, keeping all other strings unchanged and in English."
         }
       ]
     }

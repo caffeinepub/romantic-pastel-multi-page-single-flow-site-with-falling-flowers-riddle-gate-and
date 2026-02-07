@@ -1,13 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Remove all AI-generated images and image-based decorative effects from the UI, except for the Final page’s last “This is you 🌷” upload/preview section.
+**Goal:** Remove any “This is you” heading text from the Final page photo section while keeping the rest of the Final page unchanged.
 
 **Planned changes:**
-- Remove the fixed AI-generated photo from the Riddle page (currently `/assets/generated/her-photo.dim_1024x1024.png`).
-- Remove the fixed AI-generated photo from the Intermediate page (currently `/assets/generated/my-photo.dim_1024x1024.png`).
-- Remove AI-generated image usage from the Landing page title styling (currently referencing `/assets/generated/floral-texture-seamless.dim_1024x1024.png`).
-- Remove the falling flower background animation and cursor petal trail so they no longer load or depend on `/assets/generated/rose-petal-sprite.dim_256x256.png` or `/assets/generated/tulip-petal-sprite.dim_256x256.png`.
-- Keep the existing flow, copy, and interactivity unchanged (navigation steps, riddle attempts and messaging, music toggle, and back button behavior), and keep the Final page’s last section title exactly “This is you 🌷” with the existing upload + preview behavior.
+- Remove the “This is you 🌷” heading from the Final page photo upload section and remove any now-unneeded spacing associated with that heading.
+- Update `frontend/src/content/strings.ts` to remove the user-facing “This is you 🌷” string (and any other user-facing “This is you” value) while keeping all remaining strings in English and otherwise unchanged.
 
-**User-visible outcome:** The app looks the same in terms of text, flow, and interactions, but no longer shows AI-generated photos or decorative image effects anywhere—except the Final page’s last “This is you 🌷” section, where the user can still upload and preview their own photo.
+**User-visible outcome:** On the Final page, users no longer see any “This is you” text anywhere; the line “this is for you” remains immediately above the photo upload component and everything else behaves the same.

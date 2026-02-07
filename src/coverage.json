@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-07T22:02:37.836Z",
+  "generatedAt": "2026-02-07T22:15:30.211Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -11,36 +11,25 @@
     "implemented": 2,
     "items": [
       {
-        "id": "REQ-19",
-        "summary": "Remove all AI-generated image usage from the UI everywhere except the Final page last section (the \"This is you 🌷\" photo upload/preview section). This includes removing the fixed photos on the Riddle and Intermediate pages and removing any image-based decorative assets used for backgrounds/effects/titles.",
+        "id": "REQ-22",
+        "summary": "Remove the “This is you 🌷” heading text from the Final page photo upload section so that the UI no longer displays any “This is you” text anywhere on the Final page.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/RiddlePage.tsx",
-          "frontend/src/pages/IntermediatePage.tsx",
-          "frontend/src/components/typography/FloralTitle.tsx",
-          "frontend/src/components/effects/FallingFlowersBackground.tsx",
-          "frontend/src/components/effects/CursorPetalTrail.tsx",
-          "frontend/src/index.css"
+          "frontend/src/pages/FinalPage.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/RiddlePage.tsx",
-          "frontend/src/pages/IntermediatePage.tsx",
-          "frontend/src/components/typography/FloralTitle.tsx",
-          "frontend/src/components/effects/FallingFlowersBackground.tsx",
-          "frontend/src/components/effects/CursorPetalTrail.tsx"
+          "frontend/src/pages/FinalPage.tsx"
         ]
       },
       {
-        "id": "REQ-20",
-        "summary": "Preserve the existing flow, copy, and interactivity while removing AI-generated images: do not change navigation steps, riddle attempt logic, wrong-answer messaging, provided strings, music toggle behavior, or back button behavior.",
+        "id": "REQ-23",
+        "summary": "Update centralized string content so the Final page does not include any user-facing “This is you” text (including “This is you 🌷”) in frontend/src/content/strings.ts, and ensure remaining user-facing strings remain in English.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/RiddlePage.tsx",
-          "frontend/src/pages/FinalPage.tsx",
-          "frontend/src/App.tsx"
+          "frontend/src/content/strings.ts"
         ],
         "matchedFiles": [
-          "frontend/src/pages/RiddlePage.tsx"
+          "frontend/src/content/strings.ts"
         ]
       }
     ]
@@ -48,13 +37,9 @@
   "changedFiles": [
     "build-request.json",
     "feature_evidence.json",
-    "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/components/effects/CursorPetalTrail.tsx",
-    "frontend/src/components/effects/FallingFlowersBackground.tsx",
-    "frontend/src/components/typography/FloralTitle.tsx",
-    "frontend/src/pages/IntermediatePage.tsx",
-    "frontend/src/pages/RiddlePage.tsx",
+    "frontend/src/content/strings.ts",
+    "frontend/src/pages/FinalPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

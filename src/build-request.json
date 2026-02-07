@@ -1,71 +1,56 @@
 {
   "kind": "build_request",
-  "title": "Remove AI-generated images everywhere except the Final page last photo section",
+  "title": "Remove “This is you” heading from Final page photo section",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-19",
-      "text": "Remove all AI-generated image usage from the UI everywhere except the Final page last section (the \"This is you 🌷\" photo upload/preview section). This includes removing the fixed photos on the Riddle and Intermediate pages and removing any image-based decorative assets used for backgrounds/effects/titles.",
+      "id": "REQ-22",
+      "text": "Remove the “This is you 🌷” heading text from the Final page photo upload section so that the UI no longer displays any “This is you” text anywhere on the Final page.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-3"
+          "msg-4"
         ],
         "quotes": [
-          "remove all the images instead of the last section which are ai generated"
+          "remove \"this is you\" text please"
         ]
       },
       "acceptanceCriteria": [
-        "Riddle page no longer renders the fixed image currently sourced from \"/assets/generated/her-photo.dim_1024x1024.png\".",
-        "Intermediate page no longer renders the fixed image currently sourced from \"/assets/generated/my-photo.dim_1024x1024.png\".",
-        "Landing page title no longer uses the floral texture image currently referenced as \"/assets/generated/floral-texture-seamless.dim_1024x1024.png\".",
-        "Falling flower background animation no longer loads or depends on \"/assets/generated/rose-petal-sprite.dim_256x256.png\" or \"/assets/generated/tulip-petal-sprite.dim_256x256.png\".",
-        "Cursor petal trail effect no longer loads or depends on \"/assets/generated/rose-petal-sprite.dim_256x256.png\".",
-        "Final page still shows the last section title exactly \"This is you 🌷\" and still allows uploading and previewing a user-selected image via the existing upload component.",
-        "No remaining runtime references to \"/assets/generated/\" images exist except those required to support the Final page user-upload preview (data URL) behavior."
+        "On the Final page, the text “This is you 🌷” is not rendered anywhere.",
+        "The line “this is for you” remains displayed immediately above the photo upload component.",
+        "No other Final page copy, layout structure, flow behavior, or interactions are changed beyond removing the “This is you 🌷” heading and its associated spacing as needed."
       ]
     },
     {
-      "id": "REQ-20",
-      "text": "Preserve the existing flow, copy, and interactivity while removing AI-generated images: do not change navigation steps, riddle attempt logic, wrong-answer messaging, provided strings, music toggle behavior, or back button behavior.",
+      "id": "REQ-23",
+      "text": "Update centralized string content so the Final page does not include any user-facing “This is you” text (including “This is you 🌷”) in frontend/src/content/strings.ts, and ensure remaining user-facing strings remain in English.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-3"
+          "msg-4"
         ],
         "quotes": [
-          "remove all the images instead of the last section which are ai generated"
+          "remove \"this is you\" text please"
         ]
       },
       "acceptanceCriteria": [
-        "All user-facing strings in frontend/src/content/strings.ts remain exactly unchanged.",
-        "Riddle validation remains case-insensitive for the correct answer \"RICHELLE\" and still enforces exactly two attempts with the same wrong-answer message.",
-        "Transitions between pages, the music toggle, and the back-to-landing button continue to function as before."
+        "frontend/src/content/strings.ts no longer contains the user-facing value “This is you 🌷”.",
+        "All remaining user-facing strings remain in English and unchanged unless required to remove “This is you” text."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files under frontend/src/components/ui (read-only).",
-    "Do not edit immutable hook files: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx.",
-    "Backend must remain single-actor; no backend changes are required for this request."
+    "Do not change navigation steps, riddle attempt logic, wrong-answer messaging, music toggle behavior, or back button behavior.",
+    "Do not modify any files under frontend/src/components/ui (read-only).",
+    "Keep the “this is for you” line exactly as currently rendered on the Final page."
   ],
   "nonGoals": [
-    "Do not add new AI-generated replacement images.",
-    "Do not introduce new pages or change the Landing → Riddle → (Intermediate on fail) → Final flow.",
-    "Do not add backend persistence or external storage for images."
+    "Redesigning the Final page photo upload component or changing its behavior.",
+    "Changing any other copy on Landing, Riddle, or Intermediate pages.",
+    "Backend changes or adding backend methods."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
-  },
-  "userProfileUpdate": {
-    "goalsToAdd": [],
-    "goalsToRemove": [],
-    "preferencesToAdd": [],
-    "preferencesToRemove": [],
-    "miscToAdd": [],
-    "miscToRemove": [],
-    "fieldsToSet": {},
-    "fieldsToDelete": []
   }
 }

@@ -19,9 +19,9 @@ export default function FinalPage() {
         
         <div className="mt-12 relative">
           <FloatingHearts />
-          <h2 className="text-3xl font-handwritten text-pink-700 text-center mb-6">
-            {STRINGS.final.photoSection}
-          </h2>
+          <p className="text-xl font-handwritten text-pink-600 text-center mb-6">
+            this is for you
+          </p>
           <SessionImageUpload
             photo={finalPhoto}
             onPhotoChange={setFinalPhoto}

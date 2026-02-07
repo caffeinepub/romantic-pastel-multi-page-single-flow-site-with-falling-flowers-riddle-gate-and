@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 11,
+  "projectStateVersion": 15,
   "summary": "Build a cute romantic single-flow multi-page web experience with pastel pink aesthetics, falling flower animations, a riddle gate with limited attempts, intermediate and final message pages, image upload placeholders, and optional music/interactive effects.",
   "architectural_notes": [
     "Single-flow multi-page UX: Landing → Riddle (2 attempts) → (optional Intermediate on fail) → Final.",
@@ -9,7 +9,9 @@
     "Optional background music toggle; ensure mobile-responsive layout and animations.",
     "Update image handling: support fixed, pre-provided photo assets (no upload) for 'my photo' on Intermediate (wrong-answer flow) and her photo displayed permanently on the specified page.",
     "Intermediate (wrong-answer) page: adjust the image display in the “diet coke” quote section to show only a single image (remove the first two images currently present there).",
-    "User request: remove all AI-generated images/assets across the experience, except keep images in the last section."
+    "User request: remove all AI-generated images/assets across the experience, except keep images in the last section.",
+    "Final page copy update: add the exact line “this is for you” directly above the photo upload section.",
+    "Final page copy update: remove the “This is you” text/label from the photo upload/preview section."
   ],
   "known_issues": [],
   "isFixRequest": false,
@@ -165,6 +167,30 @@
         "REQ-20"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-on-the-final-page-render-the-exact-text-this-is-for-you-as-the-last-line-of-text-immediately-above-the-photo-upload-section-the-section-currently-titled-this-is-you-without-changing-any-other-copy-layout-structure-or-flow-behavior",
+      "title": "On the Final page, render the exact text \"this is for you\" as the last line of text immediately above the photo upload section (the section currently titled \"This is you 🌷\"), without changing any other copy, layout structure, or flow behavior.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-this-is-you-heading-text-from-the-final-page-photo-upload-section-so-that-the-ui-no-longer-displays-any-this-is-you-text-anywhere-on-the-final-page",
+      "title": "Remove the “This is you 🌷” heading text from the Final page photo upload section so that the UI no longer displays any “This is you” text anywhere on the Final page.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-centralized-string-content-so-the-final-page-does-not-include-any-user-facing-this-is-you-text-including-this-is-you-in-frontend-src-content-strings-ts-and-ensure-remaining-user-facing-strings-remain-in-english",
+      "title": "Update centralized string content so the Final page does not include any user-facing “This is you” text (including “This is you 🌷”) in frontend/src/content/strings.ts, and ensure remaining user-facing strings remain in English.",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -230,6 +256,18 @@
     {
       "id": "AR-10",
       "summary": "Remove all AI-generated images/assets from the site (keep only the images in the last section, per user request)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Update Final page: add the exact text “this is for you” on the last text line above the upload-a-pic (“This is you 🌷”) section",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Remove the “This is you” text/label from the Final page (the photo upload/preview section)",
       "reqIds": [],
       "status": "pending"
     }

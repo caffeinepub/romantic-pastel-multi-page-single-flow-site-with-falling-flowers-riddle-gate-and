@@ -5,7 +5,7 @@
   "frontend/src/pages/LandingPage.tsx": "Landing page displaying the large floral-textured \"RICHELLE\" title with bounce animation, subtitle, and continue button over falling flowers background.",
   "frontend/src/pages/RiddlePage.tsx": "Riddle page with answer validation, two-attempt limit, shake animation on wrong answers, navigation to either Final or Intermediate page, and a back button to return to landing (fixed photo display removed).",
   "frontend/src/pages/IntermediatePage.tsx": "Intermediate page shown after two failed riddle attempts, featuring a supportive message, continue button, and a back button to return to landing (fixed photo display removed).",
-  "frontend/src/pages/FinalPage.tsx": "Final page with slower falling roses, handwritten note card, photo upload section with floating hearts, footer attribution, and a back button to return to landing.",
+  "frontend/src/pages/FinalPage.tsx": "Final page with slower falling roses, handwritten note card, \"this is for you\" text line, photo upload section with floating hearts, footer attribution, and a back button to return to landing.",
   "frontend/src/components/effects/FallingFlowersBackground.tsx": "Canvas-based continuous falling flowers animation drawing petals with canvas primitives (teardrop shapes for roses, ovals for tulips), supporting mixed roses/tulips or roses-only variants with configurable speed.",
   "frontend/src/components/effects/SparklesOverlay.tsx": "Canvas-based subtle twinkling sparkles overlay effect with proper useRef initialization that doesn't interfere with interactions.",
   "frontend/src/components/effects/FloatingHearts.tsx": "Animated floating heart emojis effect that surrounds content without blocking pointer events.",
