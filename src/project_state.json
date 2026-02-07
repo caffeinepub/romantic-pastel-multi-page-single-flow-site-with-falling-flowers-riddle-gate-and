@@ -1,0 +1,162 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Build a cute romantic single-flow multi-page web experience with pastel pink aesthetics, falling flower animations, a riddle gate with limited attempts, intermediate and final message pages, image upload placeholders, and optional music/interactive effects.",
+  "architectural_notes": [
+    "Single-flow multi-page UX: Landing → Riddle (2 attempts) → (optional Intermediate on fail) → Final.",
+    "Use continuous background animation of multiple falling roses/tulips (snowfall effect) across pages; slower on final page.",
+    "Include client-side image upload placeholders on intermediate page (user photo) and final page (her photo).",
+    "Maintain cohesive pastel pink/blush theme with rounded elements, handwritten romantic fonts, subtle sparkles/hearts, and smooth transitions.",
+    "Optional background music toggle; ensure mobile-responsive layout and animations."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-implement-a-single-flow-multi-page-frontend-experience-with-three-main-pages-landing-riddle-final-plus-an-intermediate-page-shown-only-after-two-failed-riddle-attempts-with-smooth-fade-transitions-between-pages-and-mobile-responsive-layout",
+      "title": "Implement a single-flow, multi-page frontend experience with three main pages (Landing → Riddle → Final) plus an intermediate page shown only after two failed riddle attempts, with smooth fade transitions between pages and mobile-responsive layout.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-consistent-soft-pink-blush-pastel-ui-aesthetic-across-all-pages-rounded-elements-dreamy-ui-styling-subtle-sparkles-floating-hearts-and-a-cohesive-handwritten-romantic-font-for-headings-notes",
+      "title": "Create a consistent soft pink/blush pastel UI aesthetic across all pages: rounded elements, dreamy UI styling, subtle sparkles, floating hearts, and a cohesive handwritten romantic font for headings/notes.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-infinite-continuous-falling-flowers-animation-multiple-roses-and-tulips-falling-from-the-top-forever-like-snowfall-as-a-reusable-background-effect-used-on-landing-and-riddle-on-final-use-a-slower-falling-roses-only-variant",
+      "title": "Add an infinite, continuous falling-flowers animation (multiple roses and tulips falling from the top forever like snowfall) as a reusable background effect used on Landing and Riddle; on Final, use a slower falling-roses-only variant.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-landing-page-with-a-soft-pink-gradient-background-and-the-falling-flowers-overlay-center-an-extremely-large-bold-prominent-richelle-title-styled-with-floral-texture-rose-and-tulip-look-with-a-gentle-glow-and-slight-bounce-animation-include-a-line-below-saying-exactly-happy-rose-day-include-a-cute-pink-button-labeled-exactly-continue-that-navigates-to-the-riddle-page",
+      "title": "Build the Landing page with a soft pink gradient background and the falling flowers overlay; center an extremely large, bold, prominent “RICHELLE” title styled with floral texture/rose-and-tulip look, with a gentle glow and slight bounce animation; include a line below saying exactly “Happy Rose Day 🌹”; include a cute pink button labeled exactly “Continue 💕” that navigates to the Riddle page.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-riddle-page-using-the-same-falling-flowers-background-and-include-the-riddle-text-exactly-as-provided-provide-an-input-field-for-the-answer-and-validate-the-primary-correct-answer-as-richelle-case-insensitive-allow-exactly-two-attempts-total-on-each-wrong-attempt-show-a-cute-shake-animation-on-the-input-card-and-display-the-gentle-message-exactly-hmm-try-again-on-correct-answer-proceed-directly-to-the-final-page",
+      "title": "Implement the Riddle page using the same falling flowers background and include the riddle text exactly as provided; provide an input field for the answer and validate the primary correct answer as “RICHELLE” (case-insensitive); allow exactly two attempts total; on each wrong attempt show a cute shake animation on the input/card and display the gentle message exactly “hmm… try again 💗”; on correct answer, proceed directly to the Final page.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-after-the-second-failed-riddle-attempt-automatically-move-forward-to-an-intermediate-page-before-final-that-has-a-soft-pink-background-a-centered-image-upload-placeholder-for-the-user-s-photo-my-photo-the-exact-text-it-s-okay-i-ll-get-you-more-diet-coke-don-t-stress-out-under-it-and-a-small-button-labeled-exactly-continue-that-proceeds-to-the-final-page",
+      "title": "After the second failed riddle attempt, automatically move forward to an Intermediate page (before Final) that has a soft pink background, a centered image upload placeholder for the user's photo (MY photo), the exact text “it’s okay, i’ll get you more diet coke, don’t stress out 💗” under it, and a small button labeled exactly “continue” that proceeds to the Final page.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-the-final-page-with-a-soft-pink-background-and-slower-falling-roses-center-a-rounded-card-containing-the-exact-note-text-in-a-cute-handwritten-font-below-the-note-include-a-section-titled-exactly-this-is-you-with-an-image-upload-placeholder-for-her-photo-surrounded-by-floating-hearts",
+      "title": "Create the Final page with a soft pink background and slower falling roses; center a rounded card containing the exact note text in a cute handwritten font; below the note include a section titled exactly “This is you 🌷” with an image upload placeholder for her photo, surrounded by floating hearts.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-polish-interactions-hover-bounce-button-micro-interactions-a-petal-cursor-trail-effect-and-smooth-animations-that-remain-performant-and-do-not-interfere-with-form-input-usability",
+      "title": "Add polish interactions: hover-bounce button micro-interactions, a petal cursor trail effect, and smooth animations that remain performant and do not interfere with form input usability.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-optional-soft-romantic-instrumental-music-toggle-that-allows-the-user-to-play-pause-background-music-default-state-must-not-be-intrusive-start-paused-by-default-and-must-respect-user-interaction-requirements-for-browser-audio-playback",
+      "title": "Add an optional soft romantic instrumental music toggle that allows the user to play/pause background music; default state must not be intrusive (start paused by default) and must respect user interaction requirements for browser audio playback.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-all-user-facing-strings-specified-by-the-user-are-rendered-exactly-as-provided-including-casing-punctuation-and-emojis-and-are-in-english",
+      "title": "Ensure all user-facing strings specified by the user are rendered exactly as provided (including casing, punctuation, and emojis) and are in English.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-required-generated-image-assets-to-support-the-visual-design-flowers-petals-sparkles-hearts-floral-texture-and-render-them-as-static-assets-from-frontend-public-assets-generated-do-not-route-images-through-the-backend",
+      "title": "Add required generated image assets to support the visual design (flowers/petals/sparkles/hearts/floral texture) and render them as static assets from frontend/public/assets/generated (do not route images through the backend).",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-back-button-on-all-non-landing-pages-riddle-intermediate-final-that-navigates-the-user-back-to-the-first-page-landing-the-button-must-use-the-existing-romantic-ui-style-and-be-placed-so-it-is-always-accessible-e-g-fixed-top-left-without-blocking-existing-controls-like-the-music-toggle",
+      "title": "Add a back button on all non-landing pages (Riddle, Intermediate, Final) that navigates the user back to the first page (Landing). The button must use the existing romantic UI style and be placed so it is always accessible (e.g., fixed top-left) without blocking existing controls like the music toggle.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-extend-the-flow-state-manager-to-support-returning-to-the-landing-page-in-a-single-call-e-g-add-a-gotolanding-action-when-returning-to-landing-via-the-back-button-reset-the-riddle-attempt-counter-back-to-2-so-the-user-can-start-fresh-when-they-continue-again",
+      "title": "Extend the flow state manager to support returning to the Landing page in a single call (e.g., add a goToLanding action). When returning to Landing via the back button, reset the riddle attempt counter back to 2 so the user can start fresh when they continue again.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create landing page with soft pink gradient background, infinite falling roses/tulips animation, large floral-textured “RICHELLE” title with glow + bounce, “Happy Rose Day 🌹” subtitle, and “Continue 💕” button",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Implement riddle page with same falling flowers background, riddle text, answer input accepting primary correct answer “RICHELLE”, exactly two attempts, wrong-answer shake animation and message “hmm… try again 💗”",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "After two failed riddle attempts, show intermediate page with soft pink background, centered image upload placeholder for user’s photo, exact text “it’s okay, i’ll get you more diet coke, don’t stress out 💗”, and small “continue” button, then proceed to final page",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Create final page with soft pink background, slower falling roses, centered rounded card containing the exact provided note in cute handwritten font, plus “This is you 🌷” section with image upload placeholder surrounded by floating hearts",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add extra interactions and polish: subtle sparkles, floating hearts, petal cursor trail, hover-bounce buttons, fade transitions between pages, optional soft romantic instrumental music toggle, smooth animations, and mobile responsiveness",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add a back button that navigates from later pages back to the first (Landing) page",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Romantic pastel multi-page single-flow site with falling flowers, riddle gate, and final note",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

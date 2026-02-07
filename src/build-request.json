@@ -1,0 +1,57 @@
+{
+  "kind": "build_request",
+  "title": "Add a back button to return to the first (Landing) page",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-12",
+      "text": "Add a back button on all non-landing pages (Riddle, Intermediate, Final) that navigates the user back to the first page (Landing). The button must use the existing romantic UI style and be placed so it is always accessible (e.g., fixed top-left) without blocking existing controls like the music toggle.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "make a back button to go on the first page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On RiddlePage, IntermediatePage, and FinalPage, a visible back button is present and clickable.",
+        "Clicking the back button always navigates to the Landing page (the first page in the flow).",
+        "The back button styling matches the existing UI aesthetic (consistent with RomanticButton / existing pastel UI).",
+        "The back button does not visually overlap or block the existing music toggle control in the top-right.",
+        "Navigation via the back button does not cause errors and preserves smooth page fade transitions already used by the app."
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Extend the flow state manager to support returning to the Landing page in a single call (e.g., add a goToLanding action). When returning to Landing via the back button, reset the riddle attempt counter back to 2 so the user can start fresh when they continue again.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "make a back button to go on the first page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "FlowProvider exposes a dedicated action to navigate to the Landing step.",
+        "After using the back button to return to Landing, going to the Riddle page again starts with exactly 2 attempts remaining (same as a fresh session).",
+        "Session storage values used by the flow (step/attempts) remain consistent with the reset behavior (no stuck state on refresh)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit any files under frontend/src/components/ui (read-only).",
+    "Do not modify immutable hook files listed in SYSTEM_CONTEXT."
+  ],
+  "nonGoals": [
+    "Adding browser history-based routing (e.g., react-router) is out of scope.",
+    "Changing any existing user-provided strings (riddle text, messages, titles, emojis) is out of scope."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Back button to return to Landing and reset flow attempts",
+  "requirements": [
+    {
+      "id": "REQ-12",
+      "summary": "Add an always-accessible romantic-styled back button on Riddle, Intermediate, and Final pages to navigate back to Landing without overlapping the music toggle or breaking fade transitions.",
+      "acceptanceCriteria": [
+        "On RiddlePage, IntermediatePage, and FinalPage, a visible back button is present and clickable.",
+        "Clicking the back button always navigates to the Landing page (the first page in the flow).",
+        "The back button styling matches the existing UI aesthetic (consistent with RomanticButton / existing pastel UI).",
+        "The back button does not visually overlap or block the existing music toggle control in the top-right.",
+        "Navigation via the back button does not cause errors and preserves smooth page fade transitions already used by the app."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/controls/BackToLandingButton.tsx",
+          "operation": "create",
+          "description": "Create a reusable fixed top-left back button component that uses the existing RomanticButton styling (romantic pastel UI) and triggers the flow action to return to Landing. Ensure high z-index, safe spacing (e.g., top-left padding similar to the music toggle), and accessible labeling. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/RiddlePage.tsx",
+          "operation": "modify",
+          "description": "Render the BackToLandingButton on the Riddle page (non-landing) in a fixed top-left position so it remains accessible and does not interfere with the existing UI. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/IntermediatePage.tsx",
+          "operation": "modify",
+          "description": "Render the BackToLandingButton on the Intermediate page (non-landing) in a fixed top-left position and ensure it does not overlap the fixed music toggle on the top-right. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/FinalPage.tsx",
+          "operation": "modify",
+          "description": "Render the BackToLandingButton on the Final page (non-landing) in a fixed top-left position while keeping existing visuals/effects intact. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Extend the flow state manager with a goToLanding action that returns to Landing and resets remaining attempts to 2 with sessionStorage kept consistent.",
+      "acceptanceCriteria": [
+        "FlowProvider exposes a dedicated action to navigate to the Landing step.",
+        "After using the back button to return to Landing, going to the Riddle page again starts with exactly 2 attempts remaining (same as a fresh session).",
+        "Session storage values used by the flow (step/attempts) remain consistent with the reset behavior (no stuck state on refresh)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/flow/FlowProvider.tsx",
+          "operation": "modify",
+          "description": "Add a dedicated goToLanding action to the FlowProvider context that sets the current step to 'landing' and resets remainingAttempts back to 2 in a single call, ensuring sessionStorage stays consistent via existing persistence logic."
+        },
+        {
+          "path": "frontend/src/components/controls/BackToLandingButton.tsx",
+          "operation": "modify",
+          "description": "Wire the BackToLandingButton to call the new FlowProvider goToLanding action on click so returning to Landing also resets the attempt counter. Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

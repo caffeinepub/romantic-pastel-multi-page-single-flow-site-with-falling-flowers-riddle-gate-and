@@ -1,2 +1,3 @@
-# romantic-pastel-multi-page-single-flow-site-with-falling-flowers-riddle-gate-and
-Exported from Caffeine project: Romantic pastel multi-page single-flow site with falling flowers, riddle gate, and final note
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`
